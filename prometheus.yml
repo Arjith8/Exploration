@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 10s 
+  scrape_timeout: 5s
+  evaluation_interval: 1m # used for rules
+  #rule_query_offset: 0s # can be set if there is a delay in data recieving and you dont wanna miss/have false positive, so instead of live you will use data that you got say 1 min ago
+  external_labels:
+    #    environment: "${ENVIRONMENT}"
+    #query_log_file: ./query/query.log
+  #scrape_failure_log_file: ./scrape/error.log
+
+scrape_configs:
+  - job_name: "django-backend"
+    metrics_path: /metrics
+    #params: # Used to send http query params along with req to the server or similar
+    #scrape_failure_log_file: "./scrape/django_backend.error.log"
+    static_configs:
+      - targets:
+          - "django:8000"
+
+
