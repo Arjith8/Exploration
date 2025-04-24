@@ -10,5 +10,6 @@ jobs:
       - run: "pip"
       - name: Installing uv
         run: "curl -LsSf https://astral.sh/uv/install.sh | sh"
-      - run: "uv"
+      - run: "uv sync"
+      - run: "uv run pytest test.py"
 
