@@ -1,0 +1,8 @@
+name: First GH action in a while
+on: push
+jobs:
+  First:
+    runs-on: ubuntu-latest
+    steps:
+      - run: "echo 'Hello'"
+
