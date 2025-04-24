@@ -2,8 +2,13 @@ services:
   django:
     build: .
     container_name: django_app
-    volumes:
-      - .:/app
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+        - action: rebuild
+          path: ./uv.lock
     ports:
       - "8000:8000"
     expose:
