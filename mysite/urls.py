@@ -20,5 +20,5 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('django_prometheus.urls')),
-    path("/health", lambda request : JsonResponse({ "status": "OK" }, status=200), name="health"),
+    path("health/", lambda request : JsonResponse({ "status": "OK" }, status=200), name="health"),
 ]
